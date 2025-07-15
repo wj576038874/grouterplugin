@@ -96,6 +96,17 @@ class GRouterPlugin implements Plugin<Project> {
                     project.println("¥¥¥¥¥¥¥¥¥$key = ${arguments[key]}")
                 }
 
+                // 获取 kapt 配置
+                def kapt = project.extensions.findByName("kapt")
+
+                // 配置 kapt 参数
+                kapt.arguments {
+                    arg("MODULE_NAME", GROUTER_SCHEME)  // 模块名称
+                    arg("GROUTER_SOURCE_PATH", sourceDir.getAbsolutePath()) // 自定义路径
+                    arg("GROUTER_SCHEME", GROUTER_SCHEME) // 路由协议
+                    arg("ROOT_PROJECT_DIR", project.rootDir.absolutePath) // 根目录
+                }
+
                 def task = project.tasks.create("GRouterProcessor" + variantName).doLast {
 
                 }

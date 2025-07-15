@@ -21,7 +21,7 @@ repositories {
     mavenCentral()
 }
 group = 'com.github.joyrun'
-version = '1.0.1'
+version = '1.0.2'
 
 uploadArchives {
     repositories {
