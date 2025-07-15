@@ -1,0 +1,34 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+//apply from: '../bintray.gradle'
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'org.jetbrains.kotlin:kotlin-compiler-runner:1.3.31'
+    implementation 'org.jetbrains.kotlin:kotlin-compiler-embeddable:1.3.31'
+    implementation 'de.defmacro:eclipse-astparser:8.1'
+    // 这里是用于解决Java语法
+//    api 'org.eclipse.jdt:org.eclipse.jdt.core:3.18.0'
+//     这个是用于生产Java类的工具
+    implementation 'com.squareup:javapoet:1.11.1'
+    // 这个是辅助工具
+    implementation 'com.alibaba:fastjson:1.1.45.android'
+    implementation 'junit:junit:4.12'
+}
+
+repositories {
+    mavenCentral()
+}
+group = 'com.github.joyrun'
+version = '1.0.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
+}
+
+
