@@ -91,10 +91,10 @@ class GRouterPlugin implements Plugin<Project> {
                 arguments.put("MODULE_NAME", project.name)
                 arguments.put("ROOT_PROJECT_DIR", project.rootDir.absolutePath)
 
-//                def keySet = arguments.keySet()
-//                for (def key : keySet) {
-//                    project.println("$key = ${arguments[key]}")
-//                }
+                def keySet = arguments.keySet()
+                for (def key : keySet) {
+                    project.println("¥¥¥¥¥¥¥¥¥$key = ${arguments[key]}")
+                }
 
                 def task = project.tasks.create("GRouterProcessor" + variantName).doLast {
 
